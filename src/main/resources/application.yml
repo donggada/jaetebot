@@ -40,9 +40,9 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST:prod-db-server}:${DB_PORT:3306}/${DB_NAME:jaetebot}?useSSL=true&useUnicode=true&serverTimezone=Asia/Seoul
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mariadb://${PROD_DB_URL}:${PROD_DB_PORT}/${PROD_DB_DATA_BASE}?useSSL=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: ${PROD_DB_PASSWORD}
+    password: ${PROD_DB_PASSWORD}
     hikari:
       maximum-pool-size: 20
       minimum-idle: 10
