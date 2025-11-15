@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  redis:
+    container_name: local-redis
+    image: redis:7.2-alpine
+    command: redis-server --port 6380
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - 6380:6380
+  mariadb:
+    container_name: local-mariadb
+    image: mariadb:11.3
+    command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --explicit_defaults_for_timestamp=1
+    ports:
+      - 33306:3306
+    environment:
+      - MYSQL_DATABASE=jaetebot
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=1234
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - TZ=UTC
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
