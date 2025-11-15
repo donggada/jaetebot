@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 - 재테크봇</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .message {
+            color: #388e3c;
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>재테크봇 로그인</h2>
+        
+        <!-- 에러 메시지 -->
+        <div th:if="${error}" class="error">
+            <p th:text="${error}"></p>
+        </div>
+        
+        <!-- 로그아웃 메시지 -->
+        <div th:if="${message}" class="message">
+            <p th:text="${message}"></p>
+        </div>
+        
+        <!-- 로그인 폼 -->
+        <form th:action="@{/auth/login}" method="post">
+            <div class="form-group">
+                <label for="username">아이디</label>
+                <input type="text" 
+                       id="username"
+                       name="username" 
+                       placeholder="아이디를 입력하세요" 
+                       required 
+                       autofocus />
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" 
+                       id="password"
+                       name="password" 
+                       placeholder="비밀번호를 입력하세요" 
+                       required />
+            </div>
+            <button type="submit">로그인</button>
+        </form>
+        
+        <div class="links">
+            <a th:href="@{/}">홈으로</a>
+        </div>
+    </div>
+</body>
+</html>
