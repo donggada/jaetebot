@@ -40,7 +40,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${PROD_DB_URL}:${PROD_DB_PORT}/${PROD_DB_DATA_BASE}?useSSL=true&useUnicode=true&serverTimezone=Asia/Seoul
+    url: jdbc:mariadb://${PROD_DB_URL}:${PROD_DB_PORT}/${PROD_DB_DATA_BASE}?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
     username: ${PROD_DB_PASSWORD}
     password: ${PROD_DB_PASSWORD}
     hikari:
