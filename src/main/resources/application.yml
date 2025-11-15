@@ -41,7 +41,7 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://${PROD_DB_URL}:${PROD_DB_PORT}/${PROD_DB_DATA_BASE}?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
-    username: ${PROD_DB_PASSWORD}
+    username: ${PROD_DB_USER_NAME}
     password: ${PROD_DB_PASSWORD}
     hikari:
       maximum-pool-size: 20
